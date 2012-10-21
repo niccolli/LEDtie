@@ -63,27 +63,12 @@ void loop(){
   
   switch (state){
     case STATE_ONE_LED:
-      setLEDarray(count);
-      if(count == B10000000){
-        count = 1;
-      } else {
-        count = count << 1;
-      }
+      setOneLED();
       delay(sleep);
       break;
     case STATE_BACK_AND_FORTH:
-      setLEDarray(count);
-      if(SBAF_direction){
-        count = count << 1;
-      } else {
-        count = count >> 1;
-      }
-      if(count == B10000000){
-        SBAF_direction = false;
-      } else if(count == B00000001){
-        SBAF_direction = true;
-      }
-      delay(100);
+      setBackAndForth();
+      break;
     case STATE_DIRECT:
       setLEDarray(count);
       break;
@@ -103,3 +88,48 @@ void setLEDarray(byte order){
   }
 }
 
+void setOneLED(){
+  static byte count = 1;
+  static int lastLEDchanged = 0;
+  
+  // プログラムの実行時間を取得し、最後にLEDの点灯を変えた時間と比較
+  // Get the running time, then compare the last time LED changed.
+  int now = millis();
+  if ( (now - lastLEDchanged) > 500 ){
+    setLEDarray(count);
+    lastLEDchanged = now;
+    
+    // LEDを点灯させる位置を変える
+    // Changing the turn on LEDs
+    if(count == B10000000){
+      count = 1;
+    } else {
+      count = count << 1;
+    }
+  }
+}
+
+void setBackAndForth(){
+  static byte count = 1;
+  static int lastLEDchanged = 0;
+  static boolean LEDdirection = true;
+
+  int now = millis();
+  if ( (now - lastLEDchanged) > 100 ){
+    setLEDarray(count);
+    lastLEDchanged = now;
+    
+    // LEDを点灯させる位置を変える
+    // Changing the turn on LEDs
+    if(SBAF_direction){
+      count = count << 1;
+    } else {
+      count = count >> 1;
+    }
+    if(count == B10000000){
+      LEDdirection = false;
+    } else if(count == B00000001){
+      LEDdirection = true;
+    }
+  }    
+}
