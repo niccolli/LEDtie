@@ -23,13 +23,12 @@ void setup(){
   Serial.begin(9600);
 }
 
-byte count = 1;
-int sleep = 500; // ms
 byte state = STATE_ONE_LED;
 //byte state = STATE_BACK_AND_FORTH;
-boolean SBAF_direction = true;
 
 void loop(){
+  byte directNumber = 0;
+  
   if(xbee.available() > 16){
     if(xbee.read() == 0x7E){
       // データが受信したことを示す
@@ -42,19 +41,13 @@ void loop(){
         Serial.write(discard);
       }
       byte newState = xbee.read();
-      byte newCount = xbee.read();
-      Serial.write(newState);
-      Serial.write(newCount);
+      byte directNumber = xbee.read();
       switch (newState){
         case STATE_ONE_LED:
         case STATE_BACK_AND_FORTH:
-          state = newState;
-          count = 1;
-          SBAF_direction = true;
-          break;
         case STATE_DIRECT:
           state = newState;
-          count = newCount;
+          break;
         default:
           break;
       }
@@ -70,7 +63,7 @@ void loop(){
       setBackAndForth();
       break;
     case STATE_DIRECT:
-      setLEDarray(count);
+      setLEDarray(directNumber);
       break;
     default:
       break;
