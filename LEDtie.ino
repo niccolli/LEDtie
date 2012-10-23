@@ -27,9 +27,9 @@ byte state = STATE_ONE_LED;
 //byte state = STATE_BACK_AND_FORTH;
 
 void loop(){
-  byte directNumber = 0;
+  static byte directNumber = 0;
   
-  if(xbee.available() > 16){
+  if(xbee.available() > 17){
     if(xbee.read() == 0x7E){
       // データが受信したことを示す
       digitalWrite(debugLED, HIGH);
@@ -41,7 +41,9 @@ void loop(){
         Serial.write(discard);
       }
       byte newState = xbee.read();
-      byte directNumber = xbee.read();
+      //Serial.write(newState);
+      directNumber = xbee.read();
+      //Serial.write(directNumber);
       switch (newState){
         case STATE_ONE_LED:
         case STATE_BACK_AND_FORTH:
@@ -57,7 +59,6 @@ void loop(){
   switch (state){
     case STATE_ONE_LED:
       setOneLED();
-      delay(sleep);
       break;
     case STATE_BACK_AND_FORTH:
       setBackAndForth();
@@ -114,7 +115,7 @@ void setBackAndForth(){
     
     // LEDを点灯させる位置を変える
     // Changing the turn on LEDs
-    if(SBAF_direction){
+    if(LEDdirection){
       count = count << 1;
     } else {
       count = count >> 1;
