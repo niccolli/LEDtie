@@ -13,11 +13,25 @@
 	<body>
 		<div class="container-fluid">
 			<div class="row-fluid">
-				<div class="span6">
-					<button id="one" class="btn btn-large btn-block" type="button" onclick="sendServer('O',0)">→</button>
+				<div class="span12">
+					<div class="alert alert-error" id="cantconnect" style="display: none;">
+						<strong>Error!</strong> Can't connect to WebSocket server.
+					</div>
+					<div class="alert" id="closed" style="display: none;">
+						<strong>Warning!</strong> Connection is closed.
+					</div>
+					<div class="alert alert-success" id="connected" style="display: none;">
+						<strong>Success!</strong> WebSocket server connected.
+					</div>
 				</div>
-				<div class="span6">
-					<button id="backandforce" class="btn btn-large btn-block" type="button" onclick="sendServer('B',0)">←→</button>
+
+				<div class="span12">
+					<div class="span6">
+						<button id="one" class="btn btn-large btn-block" type="button" onclick="sendServer('O',0)">→</button>
+					</div>
+					<div class="span6">
+						<button id="backandforce" class="btn btn-large btn-block" type="button" onclick="sendServer('B',0)">←→</button>
+					</div>
 				</div>
 				<!-- <input id="range01" class="span12" type="range" min="0" max="8" onchange="sendServer('D',document.getElementById('range01').value)" /> -->
 				<!--  -->
@@ -31,26 +45,14 @@
 			</div>
 		</div>
 
-		<!-- Socket.IO -->
-		<script src="/socket.io/socket.io.js"></script>
-		<script>
-			var socket = io.connect('http://strawberry.local:3000');
-			
-			function sendServer(state, value){
-				socket.emit('value', {
-					state: state,
-					value: value
-				});
-			}
-
-
-		</script>
-
 		<!-- jQuery and jQuery UI -->
 		<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
 		<script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
 		<script type="text/javascript" src="js/jquery.ui.touch-punch.min.js"></script>
+
 		<script type="text/javascript" src="js/flotr2.min.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+
 		<script type="text/javascript">
 			// MobileSafariでdraggableやsliderを使用可能にする
 			// https://github.com/furf/jquery-ui-touch-punch
@@ -70,6 +72,7 @@
 
 			// グラフ
 			var container = document.getElementById("graph1"),
+			voltLogs = [],
 			// Arduinoの5V電源電圧
 			vdd50 = [],
 			// XBeeの3.3V電源電圧	
@@ -77,7 +80,7 @@
 			// 根元のエネループ2本分の電圧
 			eneloop = [];
 
-			
+			/* グラフ描画サンプル
 			vdd50 = [[-60,4.22], [-54,4.86], [-48,4.41], [-42,5.01],
 					 [-36,4.92], [-30,3.89], [-24,4.36], [-18,4.76],
 					 [-12,4.83], [ -6,4.95], [  0,5.02]
@@ -90,6 +93,7 @@
 					 [-36,2.42], [-30,2.35], [-24,2.29], [-18,2.38],
 					 [-12,2.38], [ -6,2.45], [  0,2.40]
 			];
+			
 
 			var options = {
 				xaxis: {
@@ -112,6 +116,64 @@
 				[vdd50, vdd33, eneloop],
 				options
 			);
+*/
+			var socket = io.connect('http://strawberry.local:3000');
+
+			socket.on('connect', function(){
+				// socket connected
+				$(".connected").alert();
+				$(".cantconnect").alert('close');
+				$(".closed").alert('close');
+			});
+
+			socket.on('voltage', function(data){
+				voltLogs.push([(+new Date())/1000, data.vard, data.vel]);
+				if(voltLogs.length > 30){
+					voltLogs.shift();
+				}
+			});
+			
+			function sendServer(state, value){
+				socket.emit('value', {
+					state: state,
+					value: value
+				});
+			}
+
+			function redrawGraph(){
+				var vdd50 = [];
+				var eneloop = [];
+				first = voltLogs[0][0];
+				for (_i = 0, _len = voltLogs.length; _i < _len; _i++) {
+					point = voltLogs[_i];
+					vdd50.push([point[0] - first, point[1]]);
+					eneloop.push([point[0] - first, point[2]]);
+				}
+				// グラフ
+				var container = document.getElementById("graph1"),
+					options = {
+						xaxis: {
+							minorTickFreq: 4,
+							max: 30,
+							min: 0,
+						},
+						yaxis: {
+							max: 6,
+							min: 2,
+							noTicks: 3
+						},
+						grid: {
+							minorVerticalLines: true
+						}
+					};
+				var graph = Flotr.draw(
+					container,
+					[vdd50, eneloop],
+					options
+				);
+
+			}
+			setInterval(redrawGraph, 500);
 		</script>
 
 	</body>
