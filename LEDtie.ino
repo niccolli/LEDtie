@@ -5,6 +5,7 @@
 #define STATE_ONE_LED          'O'
 #define STATE_BACK_AND_FORTH   'B'
 #define STATE_DIRECT           'D'
+#define STATE_PULSE            'P'
 
 int LEDs[] = { 9, 8, 7, 6, 5, 4, 3, 2 };
 int debugLED = 13;
@@ -19,7 +20,7 @@ void setup(){
     digitalWrite(LEDs[i], LOW);
   }
   
-  xbee.begin(9600);  
+  xbee.begin(57600);  
   Serial.begin(9600);
 }
 
@@ -38,7 +39,7 @@ void loop(){
       // データのいらない部分は飛ばす
       for(int i = 0; i <= 13; i++){
         byte discard = xbee.read();
-        Serial.write(discard);
+        //Serial.write(discard);
       }
       byte newState = xbee.read();
       //Serial.write(newState);
@@ -48,6 +49,7 @@ void loop(){
         case STATE_ONE_LED:
         case STATE_BACK_AND_FORTH:
         case STATE_DIRECT:
+        case STATE_PULSE:
           state = newState;
           break;
         default:
@@ -65,6 +67,11 @@ void loop(){
       break;
     case STATE_DIRECT:
       setLEDarray(directNumber);
+      break;
+    case STATE_PULSE:
+      setOnePulse();
+      state = STATE_DIRECT;
+      directNumber = 0;
       break;
     default:
       break;
@@ -104,26 +111,41 @@ void setOneLED(){
 }
 
 void setBackAndForth(){
-  static byte count = 1;
-  static int lastLEDchanged = 0;
-  static boolean LEDdirection = true;
+  static byte SBAFcount = 1;
+  static int SBAFlastLEDchanged = 0;
+  static boolean SBAFLEDdirection = true;
 
   int now = millis();
-  if ( (now - lastLEDchanged) > 100 ){
-    setLEDarray(count);
-    lastLEDchanged = now;
+  if ( (now - SBAFlastLEDchanged) > 100 ){
+    setLEDarray(SBAFcount);
+    SBAFlastLEDchanged = now;
     
     // LEDを点灯させる位置を変える
     // Changing the turn on LEDs
-    if(LEDdirection){
-      count = count << 1;
+    if(SBAFLEDdirection){
+      SBAFcount = SBAFcount << 1;
     } else {
-      count = count >> 1;
+      SBAFcount = SBAFcount >> 1;
     }
-    if(count == B10000000){
-      LEDdirection = false;
-    } else if(count == B00000001){
-      LEDdirection = true;
+    if(SBAFcount == B10000000){
+      SBAFLEDdirection = false;
+    } else if(SBAFcount == B00000001){
+      SBAFLEDdirection = true;
     }
   }    
+}
+
+void setOnePulse(){
+  byte pulse = B10000000;
+  while(pulse >= B00000001){
+    setLEDarray(pulse);
+    pulse = pulse >> 1;
+    delay(20);
+  }
+  pulse = B0000001;
+  while(pulse <= B01000000){
+    pulse = pulse << 1;
+    setLEDarray(pulse);
+    delay(20);
+  }
 }
