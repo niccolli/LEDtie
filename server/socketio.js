@@ -3,7 +3,7 @@ var express = require('express')
   , server = require('http').createServer(app)
   , io = require('socket.io').listen(server);
 
-server.listen(3000);
+server.listen(80);
 
 app.configure(function(){
 	app.use(express.static('static'));
@@ -20,6 +20,8 @@ var rsp = require('serialport');
 var xbee = require('xbee');
 var SerialPort = rsp.SerialPort;
 var serial_xbee = new SerialPort('/dev/tty.usbserial-AE01CQBA', {
+	baudrate: 57600,
+//	baudrate: 9600,
 	parser: xbee.packetParser()
 });
 
@@ -39,9 +41,22 @@ function sendRemoteRFData(cmd, val, remote64, remote16){
 	rf.destination16 = remote16;
 	b = rf.getBytes();
 	serial_xbee.write(b);
+	console.log(b);
 }
 
-// Socket.IO is connected
+function invertControllerValue(num){
+	if(num >= 8){
+		return 255;
+	} else {
+		var binary = 0;
+		for( ; num > 0; num--){
+			binary += Math.pow(2, 8-num);
+		}
+		return binary;
+	}
+}
+
+// connected via Socket.IO
 io.sockets.on('connection', function(socket){
 	// Remote XBee sent the AD value
 	serial_xbee.on('data', function(data){
@@ -54,7 +69,8 @@ io.sockets.on('connection', function(socket){
 	});
 	socket.on('value', function(data) {
 		// Write command to remote XBee from iPhone
-		sendRemoteRFData(data.state, Math.pow(2,data.value)-1, remote64, remote16);
+		// console.log(data.value);
+		sendRemoteRFData(data.state, invertControllerValue(data.value), remote64, remote16);
 	});
 });
 

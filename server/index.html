@@ -8,7 +8,8 @@
 		<link href="css/bootstrap.min.css" rel="stylesheet" />
 		<script src="js/bootstrap.min.js"></script>
 
-		<link href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" rel="stylesheet" />
+		<!-- <link href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" rel="stylesheet" /> -->
+		<link href="css/jquery-ui.css" rel="stylesheet" />
 	</head>
 	<body>
 		<div class="container-fluid">
@@ -27,10 +28,10 @@
 
 				<div class="span12">
 					<div class="span6">
-						<button id="one" class="btn btn-large btn-block" type="button" onclick="sendServer('O',0)">→</button>
+						<button id="one" class="btn btn-large btn-block" type="button" onclick="clearInterval(BPMslideTimer);sendServer('O',0);">→</button>
 					</div>
 					<div class="span6">
-						<button id="backandforce" class="btn btn-large btn-block" type="button" onclick="sendServer('B',0)">←→</button>
+						<button id="backandforce" class="btn btn-large btn-block" type="button" onclick="clearInterval(BPMslideTimer);sendServer('B',0);">←→</button>
 					</div>
 				</div>
 				<!-- <input id="range01" class="span12" type="range" min="0" max="8" onchange="sendServer('D',document.getElementById('range01').value)" /> -->
@@ -38,16 +39,30 @@
 				<div class="span12">
 				</div>
 				<div class="span12">
-					<div id="slider"></div>
+					<!-- <button id="audioStart" class="btn btn-large btn-block" type="button" onclick="sendServer('P',0)">Pulse</button> -->
+					<div class="span3">
+						BPM: <span id="BPMdisplay"></span>
+					</div>
+					<div class="span9">
+						<div id="BPMslide"></div>
+					</div>
+				</div>
+				<div class="span12">
+				</div>
+				<div class="span12">
+					<div id="StaticSlider"></div>
 				</div>
 				<h4>Power voltage stats</h4>
 				<div id="graph1" class="span12" style="height: 130px;"></div>
+				<canvas id="spectrum" width="300" height="200"></canvas>
 			</div>
 		</div>
 
 		<!-- jQuery and jQuery UI -->
-		<script src="http://code.jquery.com/jquery-1.8.2.js"></script>
-		<script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+		<!-- <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+		<script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script> -->
+		<script src="js/jquery-1.8.2.js"></script>
+		<script src="js/jquery-ui.js"></script>
 		<script type="text/javascript" src="js/jquery.ui.touch-punch.min.js"></script>
 
 		<script type="text/javascript" src="js/flotr2.min.js"></script>
@@ -62,13 +77,27 @@
 			}
 
 			// スライダーの初期設定と動いたときのコールバック	
-			$("#slider").slider({
+			$("#StaticSlider").slider({
 				min: 0,
 				max: 8,
 				slide: function(event, ui){
+					clearInterval(BPMslideTimer);
 					sendServer('D', ui.value);
 				}
 			});
+			var BPMslideTimer;
+			$("#BPMslide").slider({
+				min: 50,
+				max: 200,
+				stop: function(event, ui){
+					clearInterval(BPMslideTimer);
+					$("#BPMdisplay").text(ui.value);
+					BPMslideTimer = setInterval(
+						"sendServer('P',0)", (60/ui.value)*1000 
+					);
+				}
+			});
+
 
 			// グラフ
 			var container = document.getElementById("graph1"),
@@ -80,51 +109,16 @@
 			// 根元のエネループ2本分の電圧
 			eneloop = [];
 
-			/* グラフ描画サンプル
-			vdd50 = [[-60,4.22], [-54,4.86], [-48,4.41], [-42,5.01],
-					 [-36,4.92], [-30,3.89], [-24,4.36], [-18,4.76],
-					 [-12,4.83], [ -6,4.95], [  0,5.02]
-			];
-			vdd33 = [[-60,3.22], [-54,3.16], [-48,3.41], [-42,3.30],
-					 [-36,3.28], [-30,3.29], [-24,3.36], [-18,3.14],
-					 [-12,3.30], [ -6,3.29], [  0,3.31]
-			];
-			eneloop = [[-60,2.22], [-54,1.86], [-48,2.41], [-42,2.43],
-					 [-36,2.42], [-30,2.35], [-24,2.29], [-18,2.38],
-					 [-12,2.38], [ -6,2.45], [  0,2.40]
-			];
-			
 
-			var options = {
-				xaxis: {
-					minorTickFreq: 4,
-					max: 0,
-					min: -60,
-				},
-				yaxis: {
-					max: 6,
-					min: 0,
-					noTicks: 3
-				},
-				grid: {
+			//var socket = io.connect('http://strawberry.local');
+			var socket = io.connect('http://127.0.0.1');
 
-					minorVerticalLines: true
-				}
-			};
-			var graph = Flotr.draw(
-				container,
-				[vdd50, vdd33, eneloop],
-				options
-			);
-*/
-			var socket = io.connect('http://strawberry.local:3000');
-
-			socket.on('connect', function(){
+			/* socket.on('connect', function(){
 				// socket connected
 				$(".connected").alert();
 				$(".cantconnect").alert('close');
 				$(".closed").alert('close');
-			});
+			}); */
 
 			socket.on('voltage', function(data){
 				voltLogs.push([(+new Date())/1000, data.vard, data.vel]);
@@ -140,6 +134,7 @@
 				});
 			}
 
+			// XBeeからの電圧値をグラフ化する
 			function redrawGraph(){
 				var vdd50 = [];
 				var eneloop = [];
@@ -174,6 +169,86 @@
 
 			}
 			setInterval(redrawGraph, 500);
+
+/*			// Web Audio API
+			var audioPath = 'http://strawberry.local/audio/03_wd.m4a';
+			var myAudioContext, myAudioAnalyser,
+            	myBuffers = {}, mySource,
+            	myNodes = {},   mySpectrum,
+            	isPlaying = false;
+
+            if('webkitAudioContext' in window) {
+            	myAudioContext = new webkitAudioContext();
+            	// an analyser is used for the spectrum
+            	myAudioAnalyser = myAudioContext.createAnalyser();
+            	myAudioAnalyser.smoothingTimeConstant = 0.85;
+            	//myAudioAnalyser.smoothingTimeConstant = 0.0;
+            	myAudioAnalyser.connect(myAudioContext.destination);
+
+            	fetchSounds();
+            }else{
+            	myAudioContext = null;
+            }
+
+            function fetchSounds(){
+            	var request = new XMLHttpRequest();
+            	request.open('GET', audioPath, true);
+            	request.responseType = 'arraybuffer';
+            	request.addEventListener('load', bufferSound, false);
+            	request.send();
+            }
+
+            function bufferSound(event){
+            	var request = event.target;
+            	var buffer = myAudioContext.createBuffer(request.response, false);
+            	myBuffers[0] = buffer;
+            }
+
+            function routeSound(source){
+            	source.connect(myAudioAnalyser);
+
+            	return source;
+            }
+
+            function playSound(){
+            	var source = myAudioContext.createBufferSource();
+            	source.buffer = myBuffers[0];
+            	source.loop = true;
+            	source = routeSound(source);
+            	source.noteOn(0);
+            	mySpectrum = setInterval(drawSpectrum, 50);
+            	mySource = source;
+            }
+
+            function pauseSound(){
+            	var source = mySource;
+            	source.noteOff(0);
+            	clearInterval(mySpectrum);
+            }
+
+            function drawSpectrum() {
+            	//var canvas = document.querySelector('canvas');
+            	var canvas = document.getElementById('spectrum');
+            	var ctx = canvas.getContext('2d');
+            	var width = canvas.width;
+            	var height = canvas.height;
+            	var bar_width = 10;
+
+            	ctx.clearRect(0, 0, width, height);
+
+            	var freqByteData = new Uint8Array(myAudioAnalyser.frequencyBinCount);
+            	//myAudioAnalyser.getByteFrequencyData(freqByteData);
+            	myAudioAnalyser.getByteTimeDomainData(freqByteData);
+
+            	var barCount = Math.round(width / bar_width);
+            	for (var i = 0; i < barCount; i++) {
+            		var magnitude = freqByteData[i];
+            		// some values need adjusting to fit on the canvas
+            		ctx.fillRect(bar_width * i, height, bar_width - 2, -magnitude + 60);
+            	}
+            }
+*/
+
 		</script>
 
 	</body>
