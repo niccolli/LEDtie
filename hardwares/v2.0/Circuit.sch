@@ -6571,26 +6571,6 @@ diameter 2.54 mm, horizontal, grid 10.16 mm</description>
 <rectangle x1="7.366" y1="-0.254" x2="7.874" y2="0.254" layer="51"/>
 <rectangle x1="9.906" y1="-0.254" x2="10.414" y2="0.254" layer="51"/>
 </package>
-<package name="TO92-EBC-OVAL">
-<description>&lt;b&gt;TO-92&lt;/b&gt;&lt;p&gt;
-grid 5.08 mm</description>
-<wire x1="-2.095" y1="-2.921" x2="2.095" y2="-2.921" width="0.127" layer="21"/>
-<wire x1="-2.413" y1="-0.1341" x2="2.413" y2="-0.1341" width="0.127" layer="21" curve="-129.583345" cap="flat"/>
-<wire x1="1.136" y1="-1.397" x2="-1.136" y2="-1.397" width="0.127" layer="51"/>
-<wire x1="-2.413" y1="-0.1341" x2="-2.413" y2="-2.4059" width="0.127" layer="51" curve="50.416655" cap="flat"/>
-<wire x1="-1.404" y1="-1.397" x2="-2.664" y2="-1.397" width="0.127" layer="51"/>
-<wire x1="-2.4135" y1="-2.4059" x2="-2.095" y2="-2.921" width="0.127" layer="21" curve="13.038528" cap="flat"/>
-<wire x1="-1.136" y1="-1.397" x2="-1.404" y2="-1.397" width="0.127" layer="21"/>
-<wire x1="2.413" y1="-2.4059" x2="2.413" y2="-0.1341" width="0.127" layer="51" curve="50.416655" cap="flat"/>
-<wire x1="2.664" y1="-1.397" x2="1.404" y2="-1.397" width="0.127" layer="51"/>
-<wire x1="1.404" y1="-1.397" x2="1.136" y2="-1.397" width="0.127" layer="21"/>
-<wire x1="2.095" y1="-2.921" x2="2.4247" y2="-2.3818" width="0.127" layer="21" curve="13.609443" cap="flat"/>
-<pad name="E" x="-2.54" y="-1.27" drill="0.8128" shape="long" rot="R90"/>
-<pad name="C" x="2.54" y="-1.27" drill="0.8128" shape="long" rot="R90"/>
-<pad name="B" x="0" y="-1.27" drill="0.8128" shape="long" rot="R90"/>
-<text x="-2.54" y="1.778" size="1.27" layer="25" ratio="10">&gt;NAME</text>
-<text x="-2.54" y="-4.572" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
-</package>
 <package name="1X2-3.5MM">
 <wire x1="-3.4" y1="3.4" x2="-3.4" y2="-2.2" width="0.127" layer="21"/>
 <wire x1="-3.4" y1="-2.2" x2="-3.4" y2="-3.6" width="0.127" layer="21"/>
@@ -6700,24 +6680,6 @@ grid 5.08 mm</description>
 <pin name="7" x="-2.54" y="-5.08" visible="pad" length="short" direction="pas" function="dot"/>
 <pin name="8" x="-2.54" y="-7.62" visible="pad" length="short" direction="pas" function="dot"/>
 <pin name="9" x="-2.54" y="-10.16" visible="pad" length="short" direction="pas" function="dot"/>
-</symbol>
-<symbol name="NPN">
-<wire x1="2.54" y1="2.54" x2="0.508" y2="1.524" width="0.1524" layer="94"/>
-<wire x1="1.778" y1="-1.524" x2="2.54" y2="-2.54" width="0.1524" layer="94"/>
-<wire x1="2.54" y1="-2.54" x2="1.27" y2="-2.54" width="0.1524" layer="94"/>
-<wire x1="1.27" y1="-2.54" x2="1.778" y2="-1.524" width="0.1524" layer="94"/>
-<wire x1="1.54" y1="-2.04" x2="0.308" y2="-1.424" width="0.1524" layer="94"/>
-<wire x1="1.524" y1="-2.413" x2="2.286" y2="-2.413" width="0.254" layer="94"/>
-<wire x1="2.286" y1="-2.413" x2="1.778" y2="-1.778" width="0.254" layer="94"/>
-<wire x1="1.778" y1="-1.778" x2="1.524" y2="-2.286" width="0.254" layer="94"/>
-<wire x1="1.524" y1="-2.286" x2="1.905" y2="-2.286" width="0.254" layer="94"/>
-<wire x1="1.905" y1="-2.286" x2="1.778" y2="-2.032" width="0.254" layer="94"/>
-<text x="-10.16" y="7.62" size="1.778" layer="95">&gt;NAME</text>
-<text x="-10.16" y="5.08" size="1.778" layer="96">&gt;VALUE</text>
-<rectangle x1="-0.254" y1="-2.54" x2="0.508" y2="2.54" layer="94"/>
-<pin name="B" x="-2.54" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
-<pin name="E" x="2.54" y="-5.08" visible="off" length="short" direction="pas" swaplevel="3" rot="R90"/>
-<pin name="C" x="2.54" y="5.08" visible="off" length="short" direction="pas" swaplevel="2" rot="R270"/>
 </symbol>
 <symbol name="1X2">
 <wire x1="-2.54" y1="5.08" x2="-2.54" y2="-2.54" width="0.254" layer="94"/>
@@ -8866,25 +8828,6 @@ With round pins</description>
 <connect gate="G$1" pin="7" pad="7"/>
 <connect gate="G$1" pin="8" pad="8"/>
 <connect gate="G$1" pin="9" pad="9"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="2N2222" prefix="T">
-<description>&lt;b&gt;NPN TRANSISTOR&lt;/b&gt;
-Big oval pads</description>
-<gates>
-<gate name="G$1" symbol="NPN" x="0" y="0"/>
-</gates>
-<devices>
-<device name="" package="TO92-EBC-OVAL">
-<connects>
-<connect gate="G$1" pin="B" pad="B"/>
-<connect gate="G$1" pin="C" pad="C"/>
-<connect gate="G$1" pin="E" pad="E"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -12680,6 +12623,74 @@ Button commonly used for reset or general input. Spark Fun Electronics SKU : COM
 </deviceset>
 </devicesets>
 </library>
+<library name="transistor">
+<description>&lt;b&gt;Transistors&lt;/b&gt;&lt;p&gt;
+&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<packages>
+<package name="TO92-ECB">
+<description>&lt;b&gt;TO-92&lt;/b&gt; Pads In Line E C B from top&lt;p&gt;</description>
+<wire x1="-2.095" y1="-1.651" x2="2.095" y2="-1.651" width="0.127" layer="21"/>
+<wire x1="-2.413" y1="1.1359" x2="2.413" y2="1.1359" width="0.127" layer="21" curve="-129.583"/>
+<wire x1="1.136" y1="-0.127" x2="-1.136" y2="-0.127" width="0.127" layer="51"/>
+<wire x1="-2.413" y1="1.1359" x2="-2.664" y2="-0.127" width="0.127" layer="51" curve="27.9407"/>
+<wire x1="-2.664" y1="-0.127" x2="-2.413" y2="-1.1359" width="0.127" layer="51" curve="22.4788"/>
+<wire x1="-1.404" y1="-0.127" x2="-2.664" y2="-0.127" width="0.127" layer="51"/>
+<wire x1="-2.4135" y1="-1.1359" x2="-2.095" y2="-1.651" width="0.127" layer="21" curve="13.0385"/>
+<wire x1="-1.136" y1="-0.127" x2="-1.404" y2="-0.127" width="0.127" layer="21"/>
+<wire x1="2.413" y1="-1.1359" x2="2.664" y2="-0.127" width="0.127" layer="51" curve="22.4788"/>
+<wire x1="2.664" y1="-0.127" x2="2.413" y2="1.1359" width="0.127" layer="51" curve="27.9333"/>
+<wire x1="2.664" y1="-0.127" x2="1.404" y2="-0.127" width="0.127" layer="51"/>
+<wire x1="1.404" y1="-0.127" x2="1.136" y2="-0.127" width="0.127" layer="21"/>
+<wire x1="2.095" y1="-1.651" x2="2.4247" y2="-1.1118" width="0.127" layer="21" curve="13.6094"/>
+<pad name="C" x="0" y="0" drill="0.8128" shape="long" rot="R90"/>
+<pad name="E" x="-2.54" y="0" drill="0.8128" shape="long" rot="R90"/>
+<pad name="B" x="2.54" y="0" drill="0.8128" shape="long" rot="R90"/>
+<text x="-2.54" y="3.048" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<text x="-2.54" y="-3.302" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+</package>
+</packages>
+<symbols>
+<symbol name="NPN">
+<wire x1="2.54" y1="2.54" x2="0.508" y2="1.524" width="0.1524" layer="94"/>
+<wire x1="1.778" y1="-1.524" x2="2.54" y2="-2.54" width="0.1524" layer="94"/>
+<wire x1="2.54" y1="-2.54" x2="1.27" y2="-2.54" width="0.1524" layer="94"/>
+<wire x1="1.27" y1="-2.54" x2="1.778" y2="-1.524" width="0.1524" layer="94"/>
+<wire x1="1.54" y1="-2.04" x2="0.308" y2="-1.424" width="0.1524" layer="94"/>
+<wire x1="1.524" y1="-2.413" x2="2.286" y2="-2.413" width="0.254" layer="94"/>
+<wire x1="2.286" y1="-2.413" x2="1.778" y2="-1.778" width="0.254" layer="94"/>
+<wire x1="1.778" y1="-1.778" x2="1.524" y2="-2.286" width="0.254" layer="94"/>
+<wire x1="1.524" y1="-2.286" x2="1.905" y2="-2.286" width="0.254" layer="94"/>
+<wire x1="1.905" y1="-2.286" x2="1.778" y2="-2.032" width="0.254" layer="94"/>
+<text x="-10.16" y="7.62" size="1.778" layer="95">&gt;NAME</text>
+<text x="-10.16" y="5.08" size="1.778" layer="96">&gt;VALUE</text>
+<rectangle x1="-0.254" y1="-2.54" x2="0.508" y2="2.54" layer="94"/>
+<pin name="B" x="-2.54" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
+<pin name="E" x="2.54" y="-5.08" visible="off" length="short" direction="pas" swaplevel="3" rot="R90"/>
+<pin name="C" x="2.54" y="5.08" visible="off" length="short" direction="pas" swaplevel="2" rot="R270"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="2SC1815" prefix="T">
+<description>&lt;b&gt;NPN EPITAXIAL TRANSISTOR&lt;/b&gt;&lt;p&gt;
+Source: TOSHIBA .. 2SC1815   1.pdf</description>
+<gates>
+<gate name="G$1" symbol="NPN" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="TO92-ECB">
+<connects>
+<connect gate="G$1" pin="B" pad="B"/>
+<connect gate="G$1" pin="C" pad="C"/>
+<connect gate="G$1" pin="E" pad="E"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -12716,22 +12727,14 @@ Button commonly used for reset or general input. Spark Fun Electronics SKU : COM
 <part name="+3V4" library="supply1" deviceset="+3V3" device=""/>
 <part name="P+2" library="supply1" deviceset="V+" device=""/>
 <part name="JP1" library="adafruit" deviceset="PINHD-1X9" device=""/>
-<part name="T1" library="adafruit" deviceset="2N2222" device=""/>
 <part name="P+3" library="supply1" deviceset="V+" device=""/>
 <part name="R5" library="rcl" deviceset="R-EU_" device="0204/7" value="1k"/>
-<part name="T2" library="adafruit" deviceset="2N2222" device=""/>
 <part name="R7" library="rcl" deviceset="R-EU_" device="0204/7" value="1k"/>
-<part name="T3" library="adafruit" deviceset="2N2222" device=""/>
 <part name="R9" library="rcl" deviceset="R-EU_" device="0204/7" value="1k"/>
-<part name="T4" library="adafruit" deviceset="2N2222" device=""/>
 <part name="R11" library="rcl" deviceset="R-EU_" device="0204/7" value="1k"/>
-<part name="T5" library="adafruit" deviceset="2N2222" device=""/>
 <part name="R13" library="rcl" deviceset="R-EU_" device="0204/7" value="1k"/>
-<part name="T6" library="adafruit" deviceset="2N2222" device=""/>
 <part name="R15" library="rcl" deviceset="R-EU_" device="0204/7" value="1k"/>
-<part name="T7" library="adafruit" deviceset="2N2222" device=""/>
 <part name="R17" library="rcl" deviceset="R-EU_" device="0204/7" value="1k"/>
-<part name="T8" library="adafruit" deviceset="2N2222" device=""/>
 <part name="R19" library="rcl" deviceset="R-EU_" device="0204/7" value="1k"/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="RN1" library="resistor-net" deviceset="RN08" device=""/>
@@ -12739,6 +12742,14 @@ Button commonly used for reset or general input. Spark Fun Electronics SKU : COM
 <part name="S1" library="SparkFun" deviceset="TAC_SWITCH" device="PTH"/>
 <part name="R6" library="rcl" deviceset="R-EU_" device="0204/7" value="1k"/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
+<part name="T1" library="transistor" deviceset="2SC1815" device=""/>
+<part name="T2" library="transistor" deviceset="2SC1815" device=""/>
+<part name="T3" library="transistor" deviceset="2SC1815" device=""/>
+<part name="T4" library="transistor" deviceset="2SC1815" device=""/>
+<part name="T5" library="transistor" deviceset="2SC1815" device=""/>
+<part name="T6" library="transistor" deviceset="2SC1815" device=""/>
+<part name="T7" library="transistor" deviceset="2SC1815" device=""/>
+<part name="T8" library="transistor" deviceset="2SC1815" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -12771,29 +12782,29 @@ Button commonly used for reset or general input. Spark Fun Electronics SKU : COM
 <instance part="+3V4" gate="G$1" x="208.28" y="127"/>
 <instance part="P+2" gate="1" x="220.98" y="127"/>
 <instance part="JP1" gate="G$1" x="220.98" y="50.8"/>
-<instance part="T1" gate="G$1" x="160.02" y="66.04"/>
 <instance part="P+3" gate="1" x="205.74" y="73.66"/>
-<instance part="R5" gate="G$1" x="149.86" y="66.04"/>
-<instance part="T2" gate="G$1" x="165.1" y="58.42"/>
-<instance part="R7" gate="G$1" x="149.86" y="58.42"/>
-<instance part="T3" gate="G$1" x="170.18" y="50.8"/>
-<instance part="R9" gate="G$1" x="149.86" y="50.8"/>
-<instance part="T4" gate="G$1" x="175.26" y="43.18"/>
-<instance part="R11" gate="G$1" x="149.86" y="43.18"/>
-<instance part="T5" gate="G$1" x="180.34" y="35.56"/>
-<instance part="R13" gate="G$1" x="149.86" y="35.56"/>
-<instance part="T6" gate="G$1" x="185.42" y="27.94"/>
-<instance part="R15" gate="G$1" x="149.86" y="27.94"/>
-<instance part="T7" gate="G$1" x="190.5" y="20.32"/>
-<instance part="R17" gate="G$1" x="149.86" y="20.32"/>
-<instance part="T8" gate="G$1" x="195.58" y="12.7"/>
-<instance part="R19" gate="G$1" x="149.86" y="12.7"/>
+<instance part="R5" gate="G$1" x="144.78" y="66.04"/>
+<instance part="R7" gate="G$1" x="144.78" y="58.42"/>
+<instance part="R9" gate="G$1" x="144.78" y="50.8"/>
+<instance part="R11" gate="G$1" x="144.78" y="43.18"/>
+<instance part="R13" gate="G$1" x="144.78" y="35.56"/>
+<instance part="R15" gate="G$1" x="144.78" y="27.94"/>
+<instance part="R17" gate="G$1" x="144.78" y="20.32"/>
+<instance part="R19" gate="G$1" x="144.78" y="12.7"/>
 <instance part="GND6" gate="1" x="149.86" y="-2.54"/>
 <instance part="RN1" gate="1" x="157.48" y="2.54"/>
 <instance part="J1" gate="G$1" x="12.7" y="119.38" rot="R180"/>
 <instance part="S1" gate="S" x="96.52" y="15.24" rot="R90"/>
 <instance part="R6" gate="G$1" x="96.52" y="30.48" rot="R90"/>
 <instance part="GND7" gate="1" x="96.52" y="-2.54"/>
+<instance part="T1" gate="G$1" x="157.48" y="66.04"/>
+<instance part="T2" gate="G$1" x="165.1" y="58.42"/>
+<instance part="T3" gate="G$1" x="172.72" y="50.8"/>
+<instance part="T4" gate="G$1" x="180.34" y="43.18"/>
+<instance part="T5" gate="G$1" x="187.96" y="35.56"/>
+<instance part="T6" gate="G$1" x="195.58" y="27.94"/>
+<instance part="T7" gate="G$1" x="203.2" y="20.32"/>
+<instance part="T8" gate="G$1" x="210.82" y="12.7"/>
 </instances>
 <busses>
 </busses>
@@ -12997,35 +13008,35 @@ Button commonly used for reset or general input. Spark Fun Electronics SKU : COM
 <net name="N$6" class="0">
 <segment>
 <pinref part="R5" gate="G$1" pin="2"/>
+<wire x1="149.86" y1="66.04" x2="154.94" y2="66.04" width="0.1524" layer="91"/>
 <pinref part="T1" gate="G$1" pin="B"/>
-<wire x1="154.94" y1="66.04" x2="157.48" y2="66.04" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$7" class="0">
 <segment>
-<pinref part="T1" gate="G$1" pin="C"/>
-<wire x1="162.56" y1="71.12" x2="162.56" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="162.56" y1="73.66" x2="200.66" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="160.02" y1="71.12" x2="160.02" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="160.02" y1="73.66" x2="200.66" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="200.66" y1="73.66" x2="200.66" y2="58.42" width="0.1524" layer="91"/>
 <pinref part="JP1" gate="G$1" pin="2"/>
 <wire x1="200.66" y1="58.42" x2="218.44" y2="58.42" width="0.1524" layer="91"/>
+<pinref part="T1" gate="G$1" pin="C"/>
 </segment>
 </net>
 <net name="N$11" class="0">
 <segment>
 <pinref part="R7" gate="G$1" pin="2"/>
+<wire x1="149.86" y1="58.42" x2="162.56" y2="58.42" width="0.1524" layer="91"/>
 <pinref part="T2" gate="G$1" pin="B"/>
-<wire x1="154.94" y1="58.42" x2="162.56" y2="58.42" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$12" class="0">
 <segment>
-<pinref part="T2" gate="G$1" pin="C"/>
 <wire x1="167.64" y1="63.5" x2="167.64" y2="66.04" width="0.1524" layer="91"/>
 <wire x1="167.64" y1="66.04" x2="198.12" y2="66.04" width="0.1524" layer="91"/>
 <wire x1="198.12" y1="66.04" x2="198.12" y2="55.88" width="0.1524" layer="91"/>
 <pinref part="JP1" gate="G$1" pin="3"/>
 <wire x1="198.12" y1="55.88" x2="218.44" y2="55.88" width="0.1524" layer="91"/>
+<pinref part="T2" gate="G$1" pin="C"/>
 </segment>
 </net>
 <net name="N$13" class="0">
@@ -13034,39 +13045,39 @@ Button commonly used for reset or general input. Spark Fun Electronics SKU : COM
 <wire x1="93.98" y1="60.96" x2="127" y2="60.96" width="0.1524" layer="91"/>
 <wire x1="127" y1="60.96" x2="127" y2="66.04" width="0.1524" layer="91"/>
 <pinref part="R5" gate="G$1" pin="1"/>
-<wire x1="127" y1="66.04" x2="144.78" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="127" y1="66.04" x2="139.7" y2="66.04" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$14" class="0">
 <segment>
 <pinref part="R9" gate="G$1" pin="2"/>
+<wire x1="149.86" y1="50.8" x2="170.18" y2="50.8" width="0.1524" layer="91"/>
 <pinref part="T3" gate="G$1" pin="B"/>
-<wire x1="154.94" y1="50.8" x2="167.64" y2="50.8" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$15" class="0">
 <segment>
-<pinref part="T3" gate="G$1" pin="C"/>
-<wire x1="172.72" y1="55.88" x2="172.72" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="175.26" y1="55.88" x2="175.26" y2="58.42" width="0.1524" layer="91"/>
 <wire x1="195.58" y1="58.42" x2="195.58" y2="53.34" width="0.1524" layer="91"/>
 <pinref part="JP1" gate="G$1" pin="4"/>
 <wire x1="195.58" y1="53.34" x2="218.44" y2="53.34" width="0.1524" layer="91"/>
-<wire x1="172.72" y1="58.42" x2="195.58" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="175.26" y1="58.42" x2="195.58" y2="58.42" width="0.1524" layer="91"/>
+<pinref part="T3" gate="G$1" pin="C"/>
 </segment>
 </net>
 <net name="N$17" class="0">
 <segment>
 <pinref part="R11" gate="G$1" pin="2"/>
+<wire x1="149.86" y1="43.18" x2="177.8" y2="43.18" width="0.1524" layer="91"/>
 <pinref part="T4" gate="G$1" pin="B"/>
-<wire x1="154.94" y1="43.18" x2="172.72" y2="43.18" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$18" class="0">
 <segment>
-<pinref part="T4" gate="G$1" pin="C"/>
-<wire x1="177.8" y1="48.26" x2="177.8" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="182.88" y1="48.26" x2="182.88" y2="50.8" width="0.1524" layer="91"/>
 <pinref part="JP1" gate="G$1" pin="5"/>
-<wire x1="177.8" y1="50.8" x2="218.44" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="182.88" y1="50.8" x2="218.44" y2="50.8" width="0.1524" layer="91"/>
+<pinref part="T4" gate="G$1" pin="C"/>
 </segment>
 </net>
 <net name="N$19" class="0">
@@ -13075,24 +13086,22 @@ Button commonly used for reset or general input. Spark Fun Electronics SKU : COM
 <wire x1="93.98" y1="55.88" x2="127" y2="55.88" width="0.1524" layer="91"/>
 <wire x1="127" y1="55.88" x2="127" y2="50.8" width="0.1524" layer="91"/>
 <pinref part="R9" gate="G$1" pin="1"/>
-<wire x1="127" y1="50.8" x2="144.78" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="127" y1="50.8" x2="139.7" y2="50.8" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$20" class="0">
 <segment>
 <pinref part="R13" gate="G$1" pin="2"/>
+<wire x1="149.86" y1="35.56" x2="185.42" y2="35.56" width="0.1524" layer="91"/>
 <pinref part="T5" gate="G$1" pin="B"/>
-<wire x1="154.94" y1="35.56" x2="177.8" y2="35.56" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$21" class="0">
 <segment>
-<pinref part="T5" gate="G$1" pin="C"/>
-<wire x1="182.88" y1="40.64" x2="182.88" y2="43.18" width="0.1524" layer="91"/>
-<wire x1="195.58" y1="43.18" x2="195.58" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="190.5" y1="40.64" x2="190.5" y2="48.26" width="0.1524" layer="91"/>
 <pinref part="JP1" gate="G$1" pin="6"/>
-<wire x1="195.58" y1="48.26" x2="218.44" y2="48.26" width="0.1524" layer="91"/>
-<wire x1="182.88" y1="43.18" x2="195.58" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="190.5" y1="48.26" x2="218.44" y2="48.26" width="0.1524" layer="91"/>
+<pinref part="T5" gate="G$1" pin="C"/>
 </segment>
 </net>
 <net name="N$22" class="0">
@@ -13101,24 +13110,22 @@ Button commonly used for reset or general input. Spark Fun Electronics SKU : COM
 <pinref part="IC1" gate="1" pin="(PCINT4/T1/SCL/USCK/ADC4)PA4"/>
 <wire x1="124.46" y1="53.34" x2="124.46" y2="43.18" width="0.1524" layer="91"/>
 <pinref part="R11" gate="G$1" pin="1"/>
-<wire x1="124.46" y1="43.18" x2="144.78" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="124.46" y1="43.18" x2="139.7" y2="43.18" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$23" class="0">
 <segment>
 <pinref part="R15" gate="G$1" pin="2"/>
+<wire x1="149.86" y1="27.94" x2="193.04" y2="27.94" width="0.1524" layer="91"/>
 <pinref part="T6" gate="G$1" pin="B"/>
-<wire x1="154.94" y1="27.94" x2="182.88" y2="27.94" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$24" class="0">
 <segment>
-<pinref part="T6" gate="G$1" pin="C"/>
-<wire x1="187.96" y1="33.02" x2="187.96" y2="35.56" width="0.1524" layer="91"/>
-<wire x1="198.12" y1="35.56" x2="198.12" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="198.12" y1="33.02" x2="198.12" y2="45.72" width="0.1524" layer="91"/>
 <pinref part="JP1" gate="G$1" pin="7"/>
 <wire x1="198.12" y1="45.72" x2="218.44" y2="45.72" width="0.1524" layer="91"/>
-<wire x1="187.96" y1="35.56" x2="198.12" y2="35.56" width="0.1524" layer="91"/>
+<pinref part="T6" gate="G$1" pin="C"/>
 </segment>
 </net>
 <net name="N$25" class="0">
@@ -13127,24 +13134,22 @@ Button commonly used for reset or general input. Spark Fun Electronics SKU : COM
 <wire x1="93.98" y1="50.8" x2="121.92" y2="50.8" width="0.1524" layer="91"/>
 <wire x1="121.92" y1="50.8" x2="121.92" y2="35.56" width="0.1524" layer="91"/>
 <pinref part="R13" gate="G$1" pin="1"/>
-<wire x1="121.92" y1="35.56" x2="144.78" y2="35.56" width="0.1524" layer="91"/>
+<wire x1="121.92" y1="35.56" x2="139.7" y2="35.56" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$26" class="0">
 <segment>
 <pinref part="R17" gate="G$1" pin="2"/>
+<wire x1="149.86" y1="20.32" x2="200.66" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="T7" gate="G$1" pin="B"/>
-<wire x1="154.94" y1="20.32" x2="187.96" y2="20.32" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$27" class="0">
 <segment>
-<pinref part="T7" gate="G$1" pin="C"/>
-<wire x1="193.04" y1="25.4" x2="193.04" y2="27.94" width="0.1524" layer="91"/>
-<wire x1="200.66" y1="27.94" x2="200.66" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="205.74" y1="25.4" x2="205.74" y2="43.18" width="0.1524" layer="91"/>
 <pinref part="JP1" gate="G$1" pin="8"/>
-<wire x1="200.66" y1="43.18" x2="218.44" y2="43.18" width="0.1524" layer="91"/>
-<wire x1="193.04" y1="27.94" x2="200.66" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="205.74" y1="43.18" x2="218.44" y2="43.18" width="0.1524" layer="91"/>
+<pinref part="T7" gate="G$1" pin="C"/>
 </segment>
 </net>
 <net name="N$28" class="0">
@@ -13152,25 +13157,23 @@ Button commonly used for reset or general input. Spark Fun Electronics SKU : COM
 <pinref part="IC1" gate="1" pin="(PCINT2/AIN1/ADC2)PA2"/>
 <wire x1="93.98" y1="48.26" x2="119.38" y2="48.26" width="0.1524" layer="91"/>
 <wire x1="119.38" y1="48.26" x2="119.38" y2="27.94" width="0.1524" layer="91"/>
-<wire x1="119.38" y1="27.94" x2="144.78" y2="27.94" width="0.1524" layer="91"/>
+<wire x1="119.38" y1="27.94" x2="139.7" y2="27.94" width="0.1524" layer="91"/>
 <pinref part="R15" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$29" class="0">
 <segment>
 <pinref part="R19" gate="G$1" pin="2"/>
+<wire x1="149.86" y1="12.7" x2="208.28" y2="12.7" width="0.1524" layer="91"/>
 <pinref part="T8" gate="G$1" pin="B"/>
-<wire x1="154.94" y1="12.7" x2="193.04" y2="12.7" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$30" class="0">
 <segment>
-<pinref part="T8" gate="G$1" pin="C"/>
-<wire x1="198.12" y1="17.78" x2="198.12" y2="20.32" width="0.1524" layer="91"/>
-<wire x1="203.2" y1="20.32" x2="203.2" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="17.78" x2="213.36" y2="40.64" width="0.1524" layer="91"/>
 <pinref part="JP1" gate="G$1" pin="9"/>
-<wire x1="203.2" y1="40.64" x2="218.44" y2="40.64" width="0.1524" layer="91"/>
-<wire x1="198.12" y1="20.32" x2="203.2" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="40.64" x2="218.44" y2="40.64" width="0.1524" layer="91"/>
+<pinref part="T8" gate="G$1" pin="C"/>
 </segment>
 </net>
 <net name="N$31" class="0">
@@ -13179,7 +13182,7 @@ Button commonly used for reset or general input. Spark Fun Electronics SKU : COM
 <wire x1="116.84" y1="45.72" x2="93.98" y2="45.72" width="0.1524" layer="91"/>
 <wire x1="116.84" y1="45.72" x2="116.84" y2="20.32" width="0.1524" layer="91"/>
 <pinref part="R17" gate="G$1" pin="1"/>
-<wire x1="116.84" y1="20.32" x2="144.78" y2="20.32" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="20.32" x2="139.7" y2="20.32" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$44" class="0">
@@ -13188,70 +13191,57 @@ Button commonly used for reset or general input. Spark Fun Electronics SKU : COM
 <wire x1="93.98" y1="43.18" x2="114.3" y2="43.18" width="0.1524" layer="91"/>
 <wire x1="114.3" y1="43.18" x2="114.3" y2="12.7" width="0.1524" layer="91"/>
 <pinref part="R19" gate="G$1" pin="1"/>
-<wire x1="114.3" y1="12.7" x2="144.78" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="114.3" y1="12.7" x2="139.7" y2="12.7" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$10" class="0">
 <segment>
 <pinref part="R7" gate="G$1" pin="1"/>
 <pinref part="IC1" gate="1" pin="(PCINT6/OC1A/SDA/MOSI/ADC6)PA6"/>
-<wire x1="144.78" y1="58.42" x2="93.98" y2="58.42" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$16" class="0">
-<segment>
-<pinref part="T7" gate="G$1" pin="E"/>
-<wire x1="193.04" y1="15.24" x2="193.04" y2="2.54" width="0.1524" layer="91"/>
-<pinref part="RN1" gate="1" pin="8"/>
+<wire x1="139.7" y1="58.42" x2="93.98" y2="58.42" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$32" class="0">
 <segment>
-<pinref part="T2" gate="G$1" pin="E"/>
 <wire x1="167.64" y1="53.34" x2="167.64" y2="2.54" width="0.1524" layer="91"/>
 <pinref part="RN1" gate="1" pin="3"/>
+<pinref part="T2" gate="G$1" pin="E"/>
 </segment>
 </net>
 <net name="N$33" class="0">
 <segment>
-<pinref part="T3" gate="G$1" pin="E"/>
-<wire x1="172.72" y1="45.72" x2="172.72" y2="2.54" width="0.1524" layer="91"/>
+<wire x1="175.26" y1="45.72" x2="175.26" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="175.26" y1="15.24" x2="172.72" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="172.72" y1="15.24" x2="172.72" y2="2.54" width="0.1524" layer="91"/>
 <pinref part="RN1" gate="1" pin="4"/>
+<pinref part="T3" gate="G$1" pin="E"/>
 </segment>
 </net>
 <net name="N$34" class="0">
 <segment>
-<pinref part="T4" gate="G$1" pin="E"/>
-<wire x1="177.8" y1="38.1" x2="177.8" y2="2.54" width="0.1524" layer="91"/>
+<wire x1="182.88" y1="38.1" x2="182.88" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="182.88" y1="15.24" x2="177.8" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="177.8" y1="15.24" x2="177.8" y2="2.54" width="0.1524" layer="91"/>
 <pinref part="RN1" gate="1" pin="5"/>
+<pinref part="T4" gate="G$1" pin="E"/>
 </segment>
 </net>
 <net name="N$35" class="0">
 <segment>
-<pinref part="T5" gate="G$1" pin="E"/>
-<wire x1="182.88" y1="30.48" x2="182.88" y2="2.54" width="0.1524" layer="91"/>
+<wire x1="190.5" y1="30.48" x2="190.5" y2="10.16" width="0.1524" layer="91"/>
+<wire x1="190.5" y1="10.16" x2="182.88" y2="10.16" width="0.1524" layer="91"/>
+<wire x1="182.88" y1="10.16" x2="182.88" y2="2.54" width="0.1524" layer="91"/>
 <pinref part="RN1" gate="1" pin="6"/>
-</segment>
-</net>
-<net name="N$36" class="0">
-<segment>
-<pinref part="T6" gate="G$1" pin="E"/>
-<wire x1="187.96" y1="22.86" x2="187.96" y2="2.54" width="0.1524" layer="91"/>
-<pinref part="RN1" gate="1" pin="7"/>
-</segment>
-</net>
-<net name="N$37" class="0">
-<segment>
-<pinref part="T8" gate="G$1" pin="E"/>
-<pinref part="RN1" gate="1" pin="9"/>
-<wire x1="198.12" y1="7.62" x2="198.12" y2="2.54" width="0.1524" layer="91"/>
+<pinref part="T5" gate="G$1" pin="E"/>
 </segment>
 </net>
 <net name="N$38" class="0">
 <segment>
 <pinref part="RN1" gate="1" pin="2"/>
+<wire x1="162.56" y1="2.54" x2="162.56" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="162.56" y1="15.24" x2="160.02" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="160.02" y1="15.24" x2="160.02" y2="60.96" width="0.1524" layer="91"/>
 <pinref part="T1" gate="G$1" pin="E"/>
-<wire x1="162.56" y1="2.54" x2="162.56" y2="60.96" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$4" class="0">
@@ -13272,6 +13262,32 @@ Button commonly used for reset or general input. Spark Fun Electronics SKU : COM
 <wire x1="93.98" y1="73.66" x2="96.52" y2="73.66" width="0.1524" layer="91"/>
 <pinref part="R6" gate="G$1" pin="2"/>
 <wire x1="96.52" y1="73.66" x2="96.52" y2="35.56" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$37" class="0">
+<segment>
+<pinref part="RN1" gate="1" pin="9"/>
+<wire x1="198.12" y1="2.54" x2="213.36" y2="2.54" width="0.1524" layer="91"/>
+<pinref part="T8" gate="G$1" pin="E"/>
+<wire x1="213.36" y1="2.54" x2="213.36" y2="7.62" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$16" class="0">
+<segment>
+<pinref part="RN1" gate="1" pin="8"/>
+<wire x1="193.04" y1="2.54" x2="193.04" y2="5.08" width="0.1524" layer="91"/>
+<wire x1="193.04" y1="5.08" x2="205.74" y2="5.08" width="0.1524" layer="91"/>
+<pinref part="T7" gate="G$1" pin="E"/>
+<wire x1="205.74" y1="5.08" x2="205.74" y2="15.24" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$36" class="0">
+<segment>
+<pinref part="RN1" gate="1" pin="7"/>
+<wire x1="187.96" y1="2.54" x2="187.96" y2="7.62" width="0.1524" layer="91"/>
+<wire x1="187.96" y1="7.62" x2="198.12" y2="7.62" width="0.1524" layer="91"/>
+<pinref part="T6" gate="G$1" pin="E"/>
+<wire x1="198.12" y1="7.62" x2="198.12" y2="22.86" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
