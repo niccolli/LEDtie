@@ -125,7 +125,7 @@
 <text x="21.7" y="5.96" size="0.8128" layer="25" font="vector" rot="R90">BOOST</text>
 <hole x="47.625" y="2.4" drill="2.8"/>
 <hole x="2.54" y="2.4" drill="2.8"/>
-<text x="12.7" y="22.86" size="2.54" layer="27" font="vector" rot="R90">LEDtie v2.0</text>
+<text x="12.7" y="22.86" size="2.54" layer="25" font="vector" rot="R90">LEDtie v2.0</text>
 <text x="16.51" y="22.86" size="1.27" layer="25" font="vector" rot="R90">Wireless Ctrl Unit
 @niccolli</text>
 <text x="8.255" y="7.62" size="2.54" layer="25" font="vector" rot="R90">+</text>
